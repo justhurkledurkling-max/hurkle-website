@@ -86,7 +86,7 @@ function processOne(file) {
   invertLayer.applyGaussianBlur(BLUR_RADIUS);
 
   doc.flatten();
-  doc.activeLayer.applyThreshold(THRESHOLD_LEVEL);
+  doc.activeLayer.adjustThreshold(THRESHOLD_LEVEL);
 
   var outFile = new File(OUTPUT_FOLDER + "/" + stripExt(file.name) + "-lineart.png");
   var pngOpts = new PNGSaveOptions();
