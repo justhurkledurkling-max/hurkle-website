@@ -1,11 +1,11 @@
 # Hurkle Durkling — launch roadmap
 
 ## Phase 0 — Foundation (this week)
-- [x] Website drafted (`index.html`), deploys via IONOS Deploy Now
-- [x] GitHub repo connected: https://github.com/justhurkledurkling-max/hurkle-website
-- [ ] Push repo to GitHub (`git push -u origin main` — see README)
-- [ ] Connect IONOS Deploy Now to the repo, point `justhurkledurkling.com` at it
-- [ ] Open Etsy shop (`docs/etsy-launch-checklist.md`)
+- [x] Website drafted (`index.html`)
+- [x] GitHub repo connected and pushed: https://github.com/justhurkledurkling-max/hurkle-website
+- [x] Open Etsy shop (`docs/etsy-launch-checklist.md`)
+- [x] Dropped IONOS web hosting (Deploy Now gated GitHub connect behind a paid tier) — kept IONOS as domain registrar only, see `docs/vendors.md`
+- [ ] Host via GitHub Pages instead; point `justhurkledurkling.com` at it (DNS records + custom domain setup)
 
 ## Phase 1 — First product
 - [ ] Pick the debut product: one small, complete coloring page set (not three half-finished ones)
