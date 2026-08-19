@@ -2,3 +2,13 @@
 __pycache__/
 *.pyc
 Etsy/
+
+# Raw source photos and intermediate working files never belong in a public
+# repo — copyright/personal-photo risk, plus they're large binaries.
+pipeline/incoming/*
+pipeline/lineart/*
+!pipeline/incoming/.gitkeep
+!pipeline/lineart/.gitkeep
+*.psd
+*.psb
+*.ai
