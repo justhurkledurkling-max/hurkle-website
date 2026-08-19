@@ -86,7 +86,10 @@ function processOne(file) {
   invertLayer.applyGaussianBlur(BLUR_RADIUS);
 
   doc.flatten();
-  applyThresholdAM(THRESHOLD_LEVEL);
+  // Hard black/white cutoff via a 2-unit-wide Levels input range, standing in
+  // for Threshold (which errors as unavailable via both the DOM method and
+  // the Action Manager call in this Photoshop version).
+  doc.activeLayer.adjustLevels(THRESHOLD_LEVEL - 1, THRESHOLD_LEVEL + 1, 1.0, 0, 255);
 
   var outFile = new File(OUTPUT_FOLDER + "/" + stripExt(file.name) + "-lineart.png");
   var pngOpts = new PNGSaveOptions();
@@ -94,12 +97,6 @@ function processOne(file) {
   doc.saveAs(outFile, pngOpts, true);
 
   doc.close(SaveOptions.DONOTSAVECHANGES);
-}
-
-function applyThresholdAM(level) {
-  var desc = new ActionDescriptor();
-  desc.putInteger(charIDToTypeID("Lvl "), level);
-  executeAction(charIDToTypeID("Thsh"), desc, DialogModes.NO);
 }
 
 function stripExt(name) {
