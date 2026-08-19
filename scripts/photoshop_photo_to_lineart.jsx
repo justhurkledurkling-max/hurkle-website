@@ -86,7 +86,7 @@ function processOne(file) {
   invertLayer.applyGaussianBlur(BLUR_RADIUS);
 
   doc.flatten();
-  doc.activeLayer.adjustThreshold(THRESHOLD_LEVEL);
+  applyThresholdAM(THRESHOLD_LEVEL);
 
   var outFile = new File(OUTPUT_FOLDER + "/" + stripExt(file.name) + "-lineart.png");
   var pngOpts = new PNGSaveOptions();
@@ -94,6 +94,12 @@ function processOne(file) {
   doc.saveAs(outFile, pngOpts, true);
 
   doc.close(SaveOptions.DONOTSAVECHANGES);
+}
+
+function applyThresholdAM(level) {
+  var desc = new ActionDescriptor();
+  desc.putInteger(charIDToTypeID("Lvl "), level);
+  executeAction(charIDToTypeID("Thsh"), desc, DialogModes.NO);
 }
 
 function stripExt(name) {
